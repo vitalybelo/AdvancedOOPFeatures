@@ -17,7 +17,7 @@ public class Main {
     }
 
     public static void sortBySalaryAndAlphabet(List<Employee> staff) {
-        //TODO Ìåòîä äîëæåí îòñîðòèðîâàòü ñîòðóäíèêîâ ïî çàðàáîòíîé ïëàòå è àëôàâèòó.
+        //TODO ÐœÐµÑ‚Ð¾Ð´ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð² Ð¿Ð¾ Ð·Ð°Ñ€Ð°Ð±Ð¾Ñ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð°Ñ‚Ðµ Ð¸ Ð°Ð»Ñ„Ð°Ð²Ð¸Ñ‚Ñƒ.
         /**
         staff.sort(((o1, o2) -> {
             int result = o1.getSalary().compareTo(o2.getSalary());
