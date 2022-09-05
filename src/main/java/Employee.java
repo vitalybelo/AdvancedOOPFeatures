@@ -20,6 +20,7 @@ public class Employee {
 
   public static List<Employee> loadStaffFromFile(String path) {
     List<Employee> staff = new ArrayList<>();
+    String dateFormat = "dd.MM.yyyy";
     try {
       List<String> lines = Files.readAllLines(Paths.get(path));
       for (String line : lines) {
@@ -28,7 +29,6 @@ public class Employee {
           System.out.println("Wrong line: " + line);
           continue;
         }
-        String dateFormat = "dd.MM.yyyy";
         staff.add(new Employee(
             fragments[0],
             Integer.parseInt(fragments[1]),

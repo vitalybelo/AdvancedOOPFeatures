@@ -9,11 +9,20 @@ public class Main {
         List<Employee> staff = Employee.loadStaffFromFile(STAFF_TXT);
 
         sortBySalaryAndAlphabet(staff);
-        for (Employee worker : staff)
-            System.out.println(worker);
 
+        staff.sort(Comparator.comparing(Employee::getSalary));
 
-        //System.out.println(staff);
+        System.out.println("Список по зарплатам (старые)");
+        //staff.forEach(employee -> System.out.println(employee));
+        staff.forEach(System.out::println);
+        System.out.println();
+
+        int bonus = 990;
+        staff.forEach(e -> e.setSalary(e.getSalary() + bonus));
+        System.out.println("Список по зарплатам (старые)");
+        staff.forEach(System.out::println);
+        System.out.println();
+
     }
 
     public static void sortBySalaryAndAlphabet(List<Employee> staff) {
@@ -21,7 +30,7 @@ public class Main {
         /**
         staff.sort(((o1, o2) -> {
             int result = o1.getSalary().compareTo(o2.getSalary());
-            return result == 0 ? o1.getName().compareTo(o2.getName()) : result;
+            return (result == 0 ? o1.getName().compareTo(o2.getName()) : result);
         }));
          */
         staff.sort((Comparator.comparingInt(Employee::getSalary).thenComparing(Employee::getName)));
