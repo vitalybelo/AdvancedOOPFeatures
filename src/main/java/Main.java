@@ -62,9 +62,6 @@ public class Main {
         System.out.println();
         System.out.println(staff.stream().max(Comparator.comparing(Employee::getSalary)).get());
 
-        //list.forEach(System.out::println);
-
-
     }
 
     public static void sortBySalaryAndAlphabet(List<Employee> staff) {
