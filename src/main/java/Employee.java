@@ -66,7 +66,7 @@ public class Employee {
   }
 
   public String toString() {
-    return name + " - " + salary + " - " +
+    return name + " :: " + salary + " :: " +
         (new SimpleDateFormat("dd.MM.yyyy")).format(workStart);
   }
 
