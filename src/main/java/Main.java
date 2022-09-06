@@ -12,13 +12,22 @@ public class Main {
     public static void main(String[] args) {
         List<Employee> staff = Employee.loadStaffFromFile(STAFF_TXT);
 
-//        sorting_By_Sort(staff);
-//        sorting_By_Stream_Filter(staff);
-//        sorting_By_Stream_Sorted(staff);
+        sorting_By_Sort(staff);
+        sorting_By_Stream_Filter(staff);
+        sorting_By_Stream_Sorted(staff);
+        map_Reduce(staff);
 
-         /**
-         * MAP reduce
-         */
+        LRUCache<Employee> cache = new LRUCache<>(5);
+        for (Employee e : staff)
+            cache.addElement(e);
+
+        System.out.println("2-nd in cache: " + cache.getElement(1).getName() + "\n");
+        cache.getAllElement().forEach(System.out::println);
+        System.out.println();
+
+    }
+
+    public static void map_Reduce (List<Employee> staff) {
 
         int salaryCell = 140_000;
         Optional<Integer> optSum = staff.stream()
@@ -27,7 +36,7 @@ public class Main {
                 .reduce(Integer::sum);
         if (optSum.isPresent())
             System.out.println("Сумма зарплат сотрудников (от " + salaryCell + " ) = " + optSum.get());
-                else System.out.println("ERROR");
+        else System.out.println("ERROR");
 
     }
 
@@ -41,9 +50,10 @@ public class Main {
         staff.forEach(e -> e.setSalary(e.getSalary() + bonus));
 
         // сортируем коллекцию по заплатам и именам
-        staff.sort(Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName));
+        staff.sort(Comparator.comparing(Employee::getSalary).reversed().thenComparing(Employee::getName));
         System.out.println("Список по зарплатам:");
         staff.forEach(System.out::println);
+        System.out.println();
     }
 
     public static void sorting_By_Stream_Filter(List<Employee> staff) {
