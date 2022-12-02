@@ -4,7 +4,7 @@ import java.util.List;
 public class LRUCache<Type> {
 
     ArrayList<Type> elements;
-    private int size;
+    private final int size;
 
     public LRUCache (int size) {
         this.size = (size <= 0 ? 10 : size);

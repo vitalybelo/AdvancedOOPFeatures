@@ -31,12 +31,15 @@ public class Main {
     public static void map_Reduce (List<Employee> staff) {
 
         int salaryCell = 140_000;
+
         Optional<Integer> optSum = staff.stream()
                 .map(Employee::getSalary)
                 .filter(s -> s >= salaryCell)
                 .reduce(Integer::sum);
-        if (optSum.isPresent())
+
+        if (optSum.isPresent()) {
             System.out.println("Сумма зарплат сотрудников (от " + salaryCell + " ) = " + optSum.get());
+        }
         else System.out.println("ERROR");
 
     }
